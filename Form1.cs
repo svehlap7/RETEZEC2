@@ -16,5 +16,38 @@ namespace RETEZEC2
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                string text = textBox1.Text;
+                text = text.Trim();
+
+                bool x = false;
+                int i = 0;
+                while (i < text.Length)
+                {
+                    if (text[i] == ' ')
+                    {
+                        if (x == true)
+                        {
+                            text = text.Remove(i, 1);
+                        }
+                        else
+                        {
+                            x = true;
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        x = false;
+                        i++;
+                    }
+                }
+                MessageBox.Show("Text bez vice mezer je: " + text);
+            }
+        }
     }
 }
